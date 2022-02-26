@@ -1,27 +1,34 @@
-// adding elements and nodes to HTML via DOM
+const div = document.querySelector("button");
 
-const container = document.querySelector("#container");
+//  Adding inline style methods
 
-const content = document.createElement("p");
-content.classList.add("content");
-content.textContent = "Hey, im Red";
-content.style.color = "red";
+div.style.color = "blue";
 
-const heading = document.createElement("h3");
-heading.classList.add("head");
-heading.textContent = "Hey, im Blue";
-heading.style.color = "blue";
+div.style.cssText = "color: blue; background: black";
 
-const project = document.createElement("div");
-project.setAttribute("style", "border: 1px solid black; background: pink");
-project.textContent = "Test";
-const headingLarge = document.createElement("h1");
-headingLarge.textContent = "I'm in a div";
-const paragraphSec = document.createElement("p");
-paragraphSec.textContent = "ME TOO!";
+div.setAttribute("style", "color: blue; background: red");
 
-container.appendChild(project);
-project.appendChild(headingLarge);
-project.appendChild(paragraphSec);
-container.appendChild(heading);
-container.appendChild(content);
+// Editing Attributes
+
+div.setAttribute("id", "theDiv");
+// if id exists, update it to 'theDiv', else create an id
+// with value "theDiv"
+
+div.getAttribute("id");
+// returns value of specified attribute, in this case
+// "theDiv"
+
+div.removeAttribute("id");
+// removes specified attribute
+
+// Working with Classes
+
+div.classList.add("new");
+// adds class "new" to your new div
+
+div.classList.remove("new");
+// removes "new" class from div
+
+div.classList.toggle("active");
+// if div doesn't have class "active" then add it, or if
+// it does, then remove it
