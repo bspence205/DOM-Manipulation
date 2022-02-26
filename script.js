@@ -1,4 +1,6 @@
-const div = document.querySelector("button");
+const divv = document.querySelector("button");
+
+const div = document.createElement('div');
 
 //  Adding inline style methods
 
@@ -32,3 +34,9 @@ div.classList.remove("new");
 div.classList.toggle("active");
 // if div doesn't have class "active" then add it, or if
 // it does, then remove it
+
+
+div.textContent = "Hello World!";
+
+div.innerHTML = '<span>Hello World!</span>';
+
