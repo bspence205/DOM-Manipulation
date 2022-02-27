@@ -54,3 +54,66 @@ borderTest.setAttribute("id", "yuyu");
 // and removes specified attribute.
 borderTest.getAttribute("id");
 borderTest.removeAttribute("id");
+
+// Events, three primary ways to call events and react to them
+// 1. attach functions attributes directly on element
+// 2. set the 'on_event' property on the DOM object
+// 3. attach event listeners to the nodes
+
+// method 1 (see html file for onclick property assigned to button)
+
+// Method 2 (uses id from button#2). create variable to hold query selected. use onclick property to set arrow function
+
+const btn = document.querySelector("#btn");
+
+btn.onclick = () => alert("Hello Guy");
+
+// Method 3 maintains separation of javascript from html, and
+// allows for multiple event listeners. more flexible method of calling event.
+// preferred method
+
+const bttn = document.querySelector("#bttn");
+bttn.addEventListener("click", () => {
+  alert("Hi Mom");
+});
+
+// All 3 methods work with named functions. used named functions if you plan to repeat multiple times/places
+// all three methods below use alertFunction() assigned to button onclick
+
+function alertFunction() {
+  alert("yay it worked");
+}
+
+const al = document.querySelector("#al");
+
+al.onclick = alertFunction;
+
+al.addEventListener("click", alertFunction);
+
+// access more info on event by passing parament to function being called
+// function (e) is a callback from addEventListener. the e is an object that references the event itself
+// within that object you can access useful properties and functions like mouse button or key presses, or info about events target which is DOM node that was clicked.
+al.addEventListener("click", function (e) {
+  console.log(e);
+});
+
+al.addEventListener("click", function (e) {
+  console.log(e.target);
+});
+
+al.addEventListener("click", function (e) {
+  e.target.style.background = "blue";
+});
+
+// attaching listeners to groups of nodes using div with id #cont
+
+// buttons is a node list. it looks and acts like an array
+const buttons = document.querySelectorAll("button");
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+  // and for each one we add a 'click' listener
+  button.addEventListener("click", () => {
+    alert(button.id);
+  });
+});
